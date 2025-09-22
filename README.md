@@ -1,41 +1,36 @@
 # event-study-excel
 
-In this event study, I examined the impact of earnings announcements on stock returns.  
+In this event study, I examined the impact of earnings announcements on stock returns.
 
-First, I estimated the **market model**:  
+First, I estimated the market model:
 
-\[
-R_{i,t} = \alpha_i + \beta_i R_{m,t} + \varepsilon_{i,t}
-\]
+Model:
+Ri,t = αi + βi · Rm,t + εi,t
 
-where:  
-- \(R_{i,t}\) is the stock return,  
-- \(R_{m,t}\) is the market return,  
-- \(\alpha_i, \beta_i\) are the regression parameters.  
+where:
 
-This regression allowed me to obtain the expected relationship between the stock and the market.  
+Ri,t is the stock return,
 
-Then, I computed the **expected return** during the event window:  
+Rm,t is the market return,
 
-\[
-\hat{R}_{i,t} = \hat{\alpha}_i + \hat{\beta}_i R_{m,t}
-\]
+αi and βi are the regression parameters.
 
-I measured the **abnormal returns (AR)** as the difference between actual and expected returns:  
+Then, I computed the expected return during the event window:
 
-\[
-AR_{i,t} = R_{i,t} - \hat{R}_{i,t}
-\]
+R̂i,t = α̂i + β̂i · Rm,t
 
-I aggregated them over time to obtain the **cumulative abnormal return (CAR)**:  
+I measured the abnormal returns (AR) as:
 
-\[
-CAR = \sum_{t=T_1}^{T_2} AR_{i,t}
-\]
+ARi,t = Ri,t − R̂i,t
 
-Finally, I applied **t-tests** to the AR and CAR to check whether they were significantly different from zero.  
+I aggregated them over time to obtain the cumulative abnormal return (CAR):
 
-- If the t-statistic was close to zero (\(|t| < 1.96\) at 5% level), the event had no significant effect.  
-- If \(|t|\) was larger, the event generated a **statistically significant market reaction**.  
+CAR = Σ (from t = T1 to T2) ARi,t
 
-The results (columns *“Test T CAR”* in the Excel file) showed that some events did trigger **significant abnormal performance**, while others did not — confirming heterogeneous market reactions to earnings announcements.
+Finally, I applied t-tests to the AR and CAR to check whether they were significantly different from zero.
+
+If the t-statistic was close to zero (|t| < 1.96 at the 5% level), the event had no significant effect.
+
+If |t| was larger, the event generated a statistically significant market reaction.
+
+The results (columns “Test T CAR” in the Excel file) showed that some events did trigger significant abnormal performance, while others did not. That is confirming heterogeneous market reactions to earnings announcements.
